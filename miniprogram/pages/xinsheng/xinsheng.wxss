@@ -1,0 +1,115 @@
+.container{
+  display: flex;/*flex布局模型*/
+  flex-direction: column; /*垂直布局*/
+  
+}
+.banner{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 30rpx;
+}
+
+.banner image{
+  width: 100%;
+  height: 390rpx;
+  border-radius: 20rpx;
+}
+
+.tab-list {
+  height: 100%rpx;
+  width: 100%;
+  /* position: fixed;
+  top: 0; */
+  left: 0;
+  z-index: 99;
+  overflow: hidden;
+  line-height: 60rpx;
+  white-space: nowrap;
+  font-size: 10pt;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx; 
+  }
+   
+ 
+
+  .tab-item {
+    display: inline-block;
+    width: 43%;
+    height: 100rpx;
+    border-radius: 20rpx;
+    background-color: #F6F7FB;
+    margin-left: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10rpx;
+  }
+
+
+  .tab-item image{
+    width: 85rpx;
+    height: 85rpx;
+    padding-left:40rpx;
+  }
+
+ /*  .tab-item text{
+    font-size: 30rpx;
+    padding-left:40rpx;
+    margin-bottom: 30rpx;
+    
+  } */
+  .box{
+    display: flex;
+    flex-direction: row;
+    /* background-color: coral; */
+    height: 100rpx;
+  }
+  .wenzi{
+    /* background-color: darkcyan; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  text1{
+    font-size: 30rpx;
+    margin-left: 50rpx;
+  }
+   
+  .selected-tab {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #46AF97;
+   
+  }
+
+  swiper{
+    display: absolute;
+  flex-direction: row;
+  height: 100vh;
+  }
+
+  .kepu {
+  height:auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* 圆角 */
+  border-radius: 20rpx;
+  /* 边 */
+  background-color: #F6F7FB;
+  margin:30rpx;
+  width: auto;
+ 
+}
+
+/* 图片 */
+
+.image_1 {
+  width: 100%;
+  height: 390rpx;
+  border-radius: 20rpx;
+}
+.text_1{
+  flex-wrap: wrap;
+}

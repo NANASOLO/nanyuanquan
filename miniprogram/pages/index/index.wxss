@@ -1,0 +1,157 @@
+/**index.wxss**/
+.container{
+  display: flex;/*flex布局模型*/
+  flex-direction: column; /*垂直布局*/
+  
+}
+
+
+.search_input {  
+  height: 90rpx;  
+  padding: 30rpx;  
+  
+}
+.search_input .searchicon {  
+  margin-right: 20rpx;
+}
+.search_input navigator {  
+  height: 100%;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  background-color: #F6F7FB;  
+  border-radius: 15rpx;  
+  color: #666;
+}
+
+
+
+.swiper1 {
+  width: 100%;
+  height: 390rpx;
+  margin-right: 32rpx;
+  margin-left: 32rpx;
+  border-radius: 20rpx;
+}
+
+swiper-item image {
+  width: 92%;
+  height: 390rpx;
+  border-radius: 20rpx;
+}
+swiper-item {
+  overflow: scroll;
+}
+
+swiper{
+  display: absolute;
+  flex-direction: row;
+  height: 100vh;
+  margin-right: 32rpx;
+  margin-left: 32rpx;
+  border-radius: 20rpx;
+  
+}
+.tab-list {
+  height: 100%;
+  width: 100%;
+  /* position: fixed;
+  top: 0; */
+  left: 0;
+  z-index: 99;
+  overflow: hidden;
+  line-height: 60rpx;
+  white-space: nowrap;
+  font-size: 10pt;
+  margin-top: 15rpx;
+  margin-bottom: 30rpx; 
+  }
+   
+  .tab-item {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    border-radius: 50rpx;
+    background-color: #F6F7FB;
+    margin-left: 32rpx;
+   
+  }
+   
+  .selected-tab {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #46AF97;
+   
+  }
+
+.box2{
+   margin-bottom: 30rpx;
+   background-color: #F6F7FB;
+   border-radius: 20rpx;
+   padding-bottom: 20rpx;
+}
+
+.box22{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.touxiang{
+  border-radius: 50rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin: 32rpx;
+  display: flex;
+}
+.box3{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  
+}
+.box4{
+  
+  margin-right: 32rpx;
+  margin-left: 154rpx;
+}
+text1{
+  font-size: 12pt;
+}
+text2{
+  font-size: 10pt;
+  color: #7B7B7B;
+}
+.icon{
+  font-size: 10pt;
+  line-height: 16px;
+  align-items: center;
+  margin-top: 30rpx;
+  margin-left: 154rpx;
+  margin-bottom: 20rpx;
+}
+.icon image{
+  height: 32rpx;
+  width: 32rpx;
+  margin-right: 10rpx;
+}
+.icon text{
+  margin-right: 100rpx;
+}
+
+.isPromotion{
+  margin-top: 30rpx;
+  
+}
+.add_icon{
+ 
+  position: fixed;
+ 
+  width:50px;
+ 
+  height:50px; 
+bottom: 35px;
+right: 30px;
+ 
+}

@@ -1,0 +1,97 @@
+<!--pages/xiangqing/xiangqing.wxml-->
+<view class="container">
+  <!-- 名字 -->
+<view class="box">
+  <view class="box1"> 
+  <image class="touxiang1" src="{{pic}}"></image>
+  <view class="box2">
+    <view><text1>{{name}}</text1></view>
+    <view><text2>{{data}}</text2></view>   
+  </view>
+  </view>
+
+<!-- 内容 -->
+<view class="box3">
+    <text>{{neirong}}</text>
+    <view wx:if="{{tupian !=''}}" class="isPromotion">
+      <image src="{{tupian}}"></image>
+    </view>
+    
+    </view>
+
+  <view class="icon"> 
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/liulang.png"></image>
+  <text>{{readNum}}</text>
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png"></image>
+  <text>{{plNum}}</text>
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png"></image>
+  <text>{{scNum}}</text>
+  </view>
+
+</view>
+
+<!-- 评论部分 -->
+<view class="box">
+<view class="box4">
+<!-- 评论数 -->
+<text1>全部评论</text1>
+<view class="divLine"></view>
+</view>
+</view>
+
+<!-- 评论头像部分 -->
+<!-- <view class="box5">
+<view class="box6">
+  <image class="touxiang" src="{{pltouxiang}}"></image>
+</view>
+  <view class="box7">
+  <view><text1>{{pl_name}}</text1></view>
+  <view><text2>{{pl_data}}</text2></view>
+  </view>
+  <view class="box8">
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pl_zan.png"></image>
+  <text>{{pl_zanNum}}</text>
+  </view>
+</view> -->
+</view>
+
+<!-- 评论内容部分 -->
+<view class="box9">
+  <text>{{plneirong}}</text>
+  <view wx:if="{{tupian !=''}}" class="isPromotion">
+      <image src="{{tupian}}"></image>
+    </view>
+</view>
+<!-- 子回复 -->
+<!-- <view class="box10">
+<text>{{zihuifu}}</text>
+  <view wx:if="{{tupian !=''}}" class="isPromotion">
+      <image src="{{tupian}}"></image>
+    </view>
+</view> -->
+
+<!-- <input confirm-type="send" class="container_inp" value="{{value}}" placeholder="{{ placeholder2 }}"
+ placeholder-class="container_place" bindconfirm="bindconfirm"></input>   -->
+
+<open-data>{{nickName}}</open-data>
+
+<!-- 评论框 -->
+<view class="talk">
+    <!-- <input class='input' type='text' value='' confirm-type='send' placeholder='我要评论:' bindinput='talkInput' value='{{inputValue}}'></input>
+    <button  class="confirm"  bindtap="submit" bindgetuserinfo="getUserInfo">发送</button> -->
+    <input class='input' confirm-type='send' placeholder='请输入文本'></input>
+    <!-- 授权按钮 -->
+    <!-- <button type="warn"  formType="submit" class="confirm" wx:if="{{nickName == empty}}" open-type="getUserInfo" bindgetuserinfo="bindGotUserInfo" bindtap='login' >
+    <view class="ziti" bindtap='login'> 
+    <text>提交</text>
+    </view>
+    </button> -->
+    
+    <!-- 提交评论按钮 -->
+    <button  formType="submit" class="confirm" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGotUserInfo" >
+    <view class="ziti" >
+    <text>提交</text>
+    </view>
+    </button>
+</view>
+

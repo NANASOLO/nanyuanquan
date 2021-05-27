@@ -1,0 +1,38 @@
+.tab-list {
+  height: 100%rpx;
+  width: 100%;
+  /* position: fixed;
+  top: 0; */
+  left: 0;
+  z-index: 99;
+  overflow: hidden;
+  line-height: 60rpx;
+  white-space: nowrap;
+  font-size: 10pt;
+  margin-top: 10px;
+  margin-bottom: 10px; 
+  }
+   
+  .tab-item {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    border-radius: 50rpx;
+    background-color: #F6F7FB;
+    margin-left: 30rpx;
+   
+  }
+   
+  .selected-tab {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #46AF97;
+   
+  }
+
+  .publish{
+    color:#ffffff;
+    background-color:#46AF97;
+    margin-top: 50rpx;
+  }

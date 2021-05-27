@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="banner">
+    <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/xinsheng.jpg"></image>
+  </view>
+
+  <scroll-view class="tab-list" scroll-x scroll-with-animation>
+    <view class="box">
+      <view wx:for="{{tabList}}" class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}"
+        bindtap="selectTab">
+        <view class="wenzi">
+        <image src="{{item.pic}}"></image>
+        <text1>{{item.name}}</text1>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <swiper current="{{current}}" bindchange="swiperChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}"
+  bindanimationfinish="changeGoodsSwip">
+    <block wx:for="{{list}}" wx:key="index">
+      <swiper-item>
+        <scroll-view class="kepu" bindtap="click" id="{{index}}" scroll-y="{{true}}" style="height: {{clientHeight?clientHeight:'auto'}}" bindscrolltolower="scrollbot">
+          <view>
+            <image class="image_1" src="{{item.pic}}" />
+          </view>
+          <view>
+            <text class="text_1">{{item.name}}</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+</view>

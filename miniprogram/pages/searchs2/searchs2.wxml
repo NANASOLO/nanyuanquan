@@ -1,0 +1,59 @@
+<view class="top">
+  <view class="topsearch">
+    <view class="frame">
+      <input value="{{shoopingtext}}" bindinput="shoppinginput" placeholder="请输入搜索关键字"></input>
+    </view>
+    
+    <view class="button1" bindtap="search">
+    搜索
+    </view>
+  </view>
+</view>
+<view class="history" wx:if="{{history}}">
+  <view class="history_title">
+    <text>历史搜索</text>
+    <image src="/images/delete.png" mode="widthFix" style="width:5%;" bindtap="cleanhistory"></image>
+  </view>
+  <view class="history_text">
+    <text wx:for="{{newArray}}" wx:key="key" data-text="{{item}}" bindtap="textfz">{{item}}</text>
+  </view>
+</view>
+<view class="none" wx:if="{{noneview}}">
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/404Error.png" mode="widthFix" style="width:65%"></image>
+  <text>抱歉，没有相关内容</text>
+</view>
+<view class='swiper_con' wx:if="{{shoppinglist}}">
+  <view class='swiper_con_view' wx:for="{{circleTozd}}" wx:key="id" wx:if='{{item.status=="1"?true:false}}' bindtap="xiangqing2Tab" data-xiangqingdata2="{{item}}">
+    <view class="box22">
+            <image class="touxiang" src="{{item.avatarUrl}}" mode="widthFix" data-status="{{item.status}}"></image>
+            <view class="box3">
+              <view>
+                <text1>{{item.nickName}}</text1>
+              </view>
+              <view>
+                <text2>{{item.time}}</text2>
+              </view>
+              <view>
+              <text4>#{{item.categor}}</text4>
+            </view>
+            </view>
+          </view>
+
+          <view class="box4">
+            <text3>{{item.content}}</text3>
+            <view wx:if="{{item.isPromotion}}" class="isPromotion">
+              <image src="{{item.tupian}}"></image>
+            </view>
+          </view>
+          <view class="icon">
+                  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png">
+                  </image>
+                  <text>评论</text>
+                  <image
+                    src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png">
+                  </image>
+                  <text>收藏</text>
+                </view>
+  </view>
+
+</view>

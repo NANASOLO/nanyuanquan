@@ -1,0 +1,3 @@
+<view >
+<image src="{{detailphoto}}" class="tupian"></image>
+</view>

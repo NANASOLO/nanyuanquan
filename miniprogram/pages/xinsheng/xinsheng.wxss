@@ -3,6 +3,23 @@
   flex-direction: column; /*垂直布局*/
   
 }
+.search_input {  
+  height: 90rpx;  
+  padding: 30rpx;  
+  
+}
+.search_input .searchicon {  
+  margin-right: 20rpx;
+}
+.search_input navigator {  
+  height: 100%;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  background-color: #F6F7FB;  
+  border-radius: 15rpx;  
+  color: #666;
+}
 .banner{
   padding-left: 30rpx;
   padding-right: 30rpx;
@@ -18,8 +35,6 @@
 .tab-list {
   height: 100%rpx;
   width: 100%;
-  /* position: fixed;
-  top: 0; */
   left: 0;
   z-index: 99;
   overflow: hidden;
@@ -52,27 +67,15 @@
     padding-left:40rpx;
   }
 
- /*  .tab-item text{
-    font-size: 30rpx;
-    padding-left:40rpx;
-    margin-bottom: 30rpx;
-    
-  } */
   .box{
     display: flex;
     flex-direction: row;
-    /* background-color: coral; */
     height: 100rpx;
   }
-  .wenzi{
-    /* background-color: darkcyan; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  text1{
-    font-size: 30rpx;
-    margin-left: 50rpx;
+  
+ .boxx{
+    
+    margin-right: 50rpx;
   }
    
   .selected-tab {
@@ -85,23 +88,23 @@
 
   swiper{
     display: absolute;
-  flex-direction: row;
-  height: 100vh;
+    flex-direction: row;
+    height: 100vh;
   }
-
-  .kepu {
-  height:auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* 圆角 */
-  border-radius: 20rpx;
-  /* 边 */
-  background-color: #F6F7FB;
-  margin:30rpx;
+  swiper-item {
+    overflow: scroll;
+  }
+  
+.box2{
   width: auto;
+  background-color: #F6F7FB;
+  border-radius: 20rpx;
+  margin-top:30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
  
 }
+
 
 /* 图片 */
 
@@ -112,4 +115,73 @@
 }
 .text_1{
   flex-wrap: wrap;
+  margin-left: 30rpx;
+  margin-bottom: 10rpx;
+}
+.box22{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.touxiang{
+  border-radius: 50rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin: 32rpx;
+  display: flex;
+}
+.box3{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  
+}
+.box4{
+  
+  margin-right: 32rpx;
+  margin-left: 154rpx;
+}
+text3{
+  font-size: 12pt;
+}
+text2{
+  font-size: 10pt;
+  color: #7B7B7B;
+}
+.icon{
+  font-size: 10pt;
+  line-height: 16px;
+  align-items: center;
+  margin-top: 30rpx;
+  margin-left: 154rpx;
+  margin-bottom: 20rpx;
+}
+.icon image{
+  height: 32rpx;
+  width: 32rpx;
+  margin-right: 20rpx;
+}
+.icon text{
+  margin-right: 150rpx;
+}
+
+.isPromotion{
+  margin-top: 30rpx;
+  
+}
+.fenqu{
+  margin-bottom: 20rpx;
+  
+}
+.neirongtu{
+  width: 100%;
+}
+.boxwhite{
+  background-color: white;
+  width: 100%;
+  height:25rpx;
+}
+text4{
+  color: #F7C95F;
 }

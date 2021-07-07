@@ -1,29 +1,45 @@
 // pages/xinsheng/xinsheng.js
+const app = getApp()
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-        list: [{
-          id: 1,
-          name: '芒果',
-          pic:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/huanying.jpg"
-        }, {
-          id: 2,
-          name: '香蕉',
-          pic:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/xinsheng.jpg"
-        }],
-        
-          tabList: [{
+    curTab: 0,
+    current: 0,
+    circleToxs:[],
+    tabList: [{
             id: 1,
             name: "科普",
-            pic:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/kepu.png"
+            picture:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/kepu.png",
+            detail:[{
+              id:1,
+              text:'军训注意事项',
+              banner:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/zysx.jpg',
+              detailphoto:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/kpxiangqing1.jpg',
+              "Promotion":"ture"
+            },{
+              id:2,
+              text:'新生交通指引',
+              banner:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/jtzy.jpg',
+              detailphoto:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/kpxiangqing2.jpg',
+              "Promotion":"ture"
+            },{
+              id:3,
+              text:'新生报到须知',
+              banner:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/bdxz.jpg',
+              detailphoto:'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/kpxiangqing3.jpg',
+              "Promotion":"ture"
+            }]
           },
           {
             id: 2,
             name: "问答",
-            pic:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wenda.png"
+            picture:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wenda.png",
+            "detail":[{
+            "isPromotion":"ture"}]
           }
         ]
   },
@@ -62,6 +78,35 @@ Page({
         }
     }
   },
+
+  xiangqingTab: function(event) {
+    console.log(event.currentTarget.dataset.id.detailphoto)
+    var kepu_detailphoto = event.currentTarget.dataset.id.detailphoto
+
+    wx.navigateTo({
+      url: '../kepudetail/kepudetail?'+"detailphoto="+kepu_detailphoto
+    })
+  },
+   xiangqing2Tab:function(event){ 
+    console.log(event.currentTarget.dataset.xiangqingdata2.avatarUrl)
+    console.log(event.currentTarget.dataset.xiangqingdata2.categor)
+    console.log(event.currentTarget.dataset.xiangqingdata2.content)
+    console.log(event.currentTarget.dataset.xiangqingdata2.images)
+    console.log(event.currentTarget.dataset.xiangqingdata2.nickName)
+    console.log(event.currentTarget.dataset.xiangqingdata2.time)
+    var xiangqingAvatarUrl = event.currentTarget.dataset.xiangqingdata2.avatarUrl
+    var xiangqingCategor = event.currentTarget.dataset.xiangqingdata2.categor
+    var xiangqingContent = event.currentTarget.dataset.xiangqingdata2.content
+    var xiangqingImages = event.currentTarget.dataset.xiangqingdata2.images
+    var xiangqingNickName = event.currentTarget.dataset.xiangqingdata2.nickName
+    var xiangqingTime = event.currentTarget.dataset.xiangqingdata2.time
+    wx.navigateTo({
+      url: '/pages/xiangqing1/xiangqing1?'+"categor="+xiangqingCategor+"&content="+xiangqingContent+"&images="+xiangqingImages+"&nickName="+xiangqingNickName+"&time="+xiangqingTime+"&avatarUrl="+xiangqingAvatarUrl
+    })
+
+   },
+
+  
     
   /**
    * 生命周期函数--监听页面加载
@@ -87,8 +132,37 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow:function(){
+    var that = this
+    db.collection('circleToxs')
+  .get({
+    success:function(res){
+      console.log(res)
+      if (res.data.length > 0) {
+        for (var i = 0; i < res.data.length; i++) {
+          res.data[i].time = that.js_date_time(res.data[i].time);}}
+      that.setData({
+        circleToxs:res.data
+       })
+      
+    }
+  })
+  },
 
+  js_date_time(unixtime) {
+    var date = new Date(unixtime);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    minute = minute < 10 ? ('0' + minute) : minute;
+    second = second < 10 ? ('0' + second) : second;
+    return m + '-' + d + ' ' + h + ':' + minute + ':' + second; //年月日时分秒
   },
 
   /**

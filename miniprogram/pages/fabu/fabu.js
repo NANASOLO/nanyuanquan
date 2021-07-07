@@ -12,15 +12,25 @@ Page({
     isClickSend:false,
     tabList:[],
     current: 0,
+    category:"",
+    avatarUrl:{},
+    nickName:{},
+    userInfo:{},
+    id:''
   },
 
-  selectTab(e) {
-    let index = e.target.dataset.index;
+  selectTab:function(event) {
+  
+    getApp().globalData.fabu_id=event.currentTarget.dataset.item.id
+    getApp().globalData.fabu_biaoqian=event.currentTarget.dataset.item.name1
+    console.log(getApp().globalData.fabu_id)
+    console.log(getApp().globalData.fabu_biaoqian)
     this.setData({
-      curTab: index,
-      current: index
+     curTab:event.currentTarget.dataset.item.id,
+     id:event.currentTarget.dataset.item.id,
+     category:event.currentTarget.dataset.item.name1
     })
-  },
+   },
 
   onLoad:function(options){
     that = this;
@@ -92,45 +102,142 @@ Page({
     })
   },
 
-  clickSend(){
-    if(that.data.content.trim().length==0 && that.data.images.length==0){
-      wx.showToast({
-        icon:'none',
-        title: '请发布点东西吧',
-      })
-      return;
-    }
-    wx.showLoading({
-      title: '上传中..',
-    })
-    if(that.data.images.length>0){
-      that.setData({
-        images_upload_success:that.data.images
-      })
-      that.uploadImage(0)
-    }else{
-      that.circleAdd();
-    }
-  },
-
-  circleAdd(){
-    db.collection('circle').add({
-      data:{
-        content:that.data.content,
-        images:that.data.images_upload_success,
-        time:new Date(),
-        loveList:[],
-        commentList:[],
-        
-      }
-    }).then(res=>{
-      console.log('add success',res)
-      wx.hideLoading({})
-    }).catch(error=>{
-      console.log('add error',error)
-      wx.hideLoading({})
-    })
-  }
 
   
-})
+  clickSend:function(){
+    var that = this
+    if(wx.getStorageSync('userInfo')){
+      console.log('在') 
+      // this.getUserProfile()
+      wx.getStorage({
+        key:'userInfo',
+        success(res){
+          var userInfo=res.data
+          that.setData({
+            userInfo:res.data
+          })
+         
+          if(that.data.content.trim().length==0 && that.data.images.length==0){
+            wx.showToast({
+              icon:'none',
+              title: '请发布点东西吧',
+            })
+            return;
+          }
+          else{
+          wx.showLoading({
+            title: '上传中..',
+            duration:1000
+          })}
+          if(that.data.category==0){
+            wx.showToast({
+              icon:'none',
+              title: '请选择标签',
+            })
+            return;
+          }
+          else{
+          wx.showLoading({
+            title: '上传中..',
+            duration:1000
+          })}
+          if(that.data.images.length>0){
+            that.setData({
+              images_upload_success:that.data.images
+            })
+            that.uploadImage(0)
+            db.collection('circle').add({
+              data:{
+                content:that.data.content,
+                images:that.data.images_upload_success,//图片
+                time:new Date(),//时间
+                categor:that.data.category, // 上传分类信息
+                avatarUrl:userInfo.avatarUrl,
+                nickName:userInfo.nickName,
+                userInfo:userInfo,
+                isPromotion:"true",
+                click:"",
+                icon:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png",
+                iconn:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang2.png"
+              }
+            }).then(res=>{
+              console.log('add success',res)
+              wx.hideLoading({})
+              wx.showToast({
+                title: '发布成功'
+          })
+           wx.switchTab({
+             url: '../index/index',
+           })
+            }).catch(error=>{
+              console.log('add error',error)
+              wx.hideLoading({})
+            })
+            
+          }else{
+            db.collection('circle').add({
+              data:{
+                content:that.data.content,
+                images:that.data.images_upload_success,//图片
+                time:new Date(),//时间
+                categor:that.data.category, // 上传分类信息
+                avatarUrl:userInfo.avatarUrl,
+                nickName:userInfo.nickName,
+                userInfo:userInfo,
+                click:"",
+                icon:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png",
+                iconn:"cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang2.png"
+              }
+            }).then(res=>{
+              console.log('add success',res)
+              wx.hideLoading({})
+              wx.showToast({
+                title: '发布成功'
+          })
+           wx.switchTab({
+             url: '../index/index',
+           })
+            }).catch(error=>{
+              console.log('add error',error)
+              wx.hideLoading({})
+            })
+            
+          }
+        }
+      })
+      }
+        else{
+        console.log('不在')
+        this.getUserProfile()
+        
+      }
+  },
+
+  getUserProfile(e){
+    wx.getUserProfile({
+      desc: '获取用户信息',
+      success: (res) => {
+        console.log(res, '成功回调')
+        // 存储key的data
+         wx.setStorage({
+               key:"userInfo",
+               data:res.userInfo,   
+                 })
+          
+        wx.showToast({
+          title: '登陆成功',
+          icon:'success',
+          duration:1500
+        })
+      console.log(res)
+          this.data.avatarUrl=res.userInfo.avatarUrl,
+          this.data.nickName=res.userInfo.nickName,
+          this.data.userInfo=res.userInfo
+          console.log("成功赋值到this.data中 ：" + this.data)
+      },
+      fail(res){
+        console.log('data')
+      },
+    })
+      },
+    })

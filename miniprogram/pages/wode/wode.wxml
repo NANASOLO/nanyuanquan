@@ -1,2 +1,53 @@
-<!--pages/wode/wode.wxml-->
-<text>pages/wode/wode.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击授权登录 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  
+
+<view class="biao">
+  
+<button style="margin-right:25rpx" class="btn" bindtap="fatiao">
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wo1.png"></image>
+  <text>发布</text>
+</button>
+  
+  
+<button class="btn" bindtap="shoutiao">
+  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wo2.png"></image>
+  <text>收藏</text>
+</button>
+  
+</view>
+
+<view class="leibiao">
+  <navigator url="/pages/renzhen/renzhen">
+  <view class="xiaobox">
+    <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wo3.png"></image>
+    <text>学生认证</text>
+    <image id="jian" src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/jiantou.png"></image>
+  </view>
+</navigator>
+<navigator url="/pages/guanyu/guanyu">
+  <view class="xiaobox">
+    <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wo4.png"></image>
+    <text>关于南苑圈</text>
+    <image id="jian" src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/jiantou.png"></image>
+  </view>
+</navigator>
+<navigator url="/pages/fankui/fankui">
+  <view class="xiaobox">
+    <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/wo5.png"></image>
+    <text>意见反馈</text>
+    <image id="jian" src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/jiantou.png"></image>
+  </view>
+</navigator>
+</view>
+</view>

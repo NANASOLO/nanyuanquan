@@ -1,0 +1,45 @@
+
+
+<view class="page-body">
+
+<view class="page-section">
+  <view class="weui-cells__title">姓名：</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" name="xingming" disabled="false" placeholder="{{xingming}}"/>
+    </view>
+  </view>
+</view>
+<view class="page-section">
+  <view class="weui-cells__title">系别：</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" name="xuehao" disabled="false" type="number" placeholder="{{xuehao}}" />
+    </view>
+  </view>
+  
+  <view class="page-section">
+  <view class="weui-cells__title">学号：</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" name="xuehao" disabled="false" type="number" placeholder="{{array[xibie]}}" />
+    </view>
+  </view>
+
+
+<view class="page-section">
+  <view class="weui-cells__title">专业：</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" name="zhuanye" disabled="false" placeholder="{{zhuanye}}"/>
+    </view>
+  </view>
+</view>
+
+ 
+</view> 
+
+</view>
+</view>
+
+

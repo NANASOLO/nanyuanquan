@@ -1,0 +1,46 @@
+<view class="container">
+  <block wx:if="{{circle==null||circle.length==0}}">
+        <view class="tu">
+        <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/404Error.png" ></image>
+        </view>
+        <view id='nothing' style='font-size:34rpx' class="gouwuche">没有收藏哦，快去收藏点东西吧~</view>
+        <navigator url="../index/index" open-type="switchTab" style='font-size:28rpx;color:#46af97' class="qushouye">去首页
+        </navigator>
+    </block>
+
+  <view class="box2" wx:for="{{circle}}" wx:for-item="a">
+
+    <view class="box22" bindtap="xiangqing2Tab" data-xiangqingdata2="{{a.circle}}">
+      <image class="touxiang" src="{{a.circle.avatarUrl}}">
+      </image>
+      <view class="box3">
+        <view>
+          <text1>{{a.circle.nickName}}</text1>
+        </view>
+        <view>
+          <text2>{{a.circle.time}}</text2>
+        </view>
+        <view>
+          <text4>#{{a.circle.categor}}</text4>
+        </view>
+      </view>
+    </view>
+
+    <view class="box4">
+      <text3>{{a.circle.content}}</text3>
+
+    </view>
+
+    <view class="icon">
+      <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png"></image>
+      <text>评论</text>
+
+      <image
+        src="{{isClick?'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png':'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang2.png'}}"
+        bindtap="deleteList" data-index="{{index}}"></image>
+      <text>{{isClick?'收藏':'已收藏'}}</text>
+    </view>
+
+  </view>
+
+</view>

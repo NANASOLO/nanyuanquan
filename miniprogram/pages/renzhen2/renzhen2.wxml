@@ -1,0 +1,57 @@
+
+
+<view class="page-body">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="page-section">
+    <view class="weui-cells__title">姓名：</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" name="xingming"  placeholder="请输入您的姓名"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="weui-cells__title">学号：</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" name="xuehao" type="number" placeholder="请输入您的学号" />
+      </view>
+    </view>
+    
+    
+    <view class="section">
+  <view class="weui-cells__title">系别：</view>
+  <picker name="xibie" bindchange="bindPickerChange"  value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+</view>
+
+<view class="page-section">
+    <view class="weui-cells__title">专业：</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" name="zhuanye" placeholder="请输入您的专业"/>
+      </view>
+    </view>
+  </view>
+
+<view class="shangchuang"> <text>学生证明：</text></view>
+  <view class='item_root' bindtap='chuantupian'>
+  <view class="tupian">
+  <view wx:if="{{isShow}}" ><text>上传图片</text></view>
+  <view><image src="{{imgUrl}}"></image></view>
+  </view>
+ </view>
+
+  
+ <view class="btn-area">
+        <button style="margin: 30rpx 0;background-color:#46af97" type="primary" formType="submit">提交</button>
+       
+      </view>
+   
+</view> 
+</form>
+</view>
+

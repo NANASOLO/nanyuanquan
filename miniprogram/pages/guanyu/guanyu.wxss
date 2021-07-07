@@ -1,0 +1,24 @@
+.dabox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 250rpx;
+}
+
+.text{
+  margin:32rpx;
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

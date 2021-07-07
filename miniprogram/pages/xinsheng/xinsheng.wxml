@@ -1,4 +1,11 @@
 <view class="container">
+  <view class="search_input">
+    <navigator url="/pages/searchs1/searchs1" class="iconfont icon-search" open-type="navigate">
+      <icon class="searchicon" size="20" type="search"></icon>
+      <text>搜索</text>
+    </navigator>
+  </view>
+
   <view class="banner">
     <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/xinsheng.jpg"></image>
   </view>
@@ -7,29 +14,69 @@
     <view class="box">
       <view wx:for="{{tabList}}" class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}"
         bindtap="selectTab">
-        <view class="wenzi">
-        <image src="{{item.pic}}"></image>
-        <text1>{{item.name}}</text1>
-        </view>
+        <image class="boxx" src="{{item.picture}}"></image>
+        {{item.name}}
       </view>
     </view>
   </scroll-view>
 
   <swiper current="{{current}}" bindchange="swiperChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}"
-  bindanimationfinish="changeGoodsSwip">
-    <block wx:for="{{list}}" wx:key="index">
+    bindanimationfinish="changeGoodsSwip">
+    <view wx:for="{{tabList}}" wx:key="index">
       <swiper-item>
-        <scroll-view class="kepu" bindtap="click" id="{{index}}" scroll-y="{{true}}" style="height: {{clientHeight?clientHeight:'auto'}}" bindscrolltolower="scrollbot">
-          <view>
-            <image class="image_1" src="{{item.pic}}" />
+        <scroll-view class="box2" bindtap="click" id="{{index}}" wx:for="{{item.detail}}" wx:for-item="list">
+          <view bindtap="xiangqingTab" data-xiangqingdata="{{list}}" data-id="{{list}}" wx:if="{{list.Promotion}}">
+            <view>
+              <image class="image_1" src="{{list.banner}}" />
+            </view>
+            <view class="text_1">
+              <text>{{list.text}}</text>
+            </view>
           </view>
-          <view>
-            <text class="text_1">{{item.name}}</text>
+
+          <!--问答-->
+          <view wx:if="{{list.isPromotion}}" wx:for="{{circleToxs}}" bindtap="xiangqing2Tab"
+            data-xiangqingdata2="{{item}}">
+            <view class="box22">
+              <image class="touxiang" src="{{item.avatarUrl}}"></image>
+              <view class="box3">
+                <view>
+                  <text3>{{item.nickName}}</text3>
+                </view>
+                <view>
+                  <text2>{{item.time}}</text2>
+                </view>
+                <view>
+                <text4>#问答</text4>
+              </view>
+              </view>
+            </view>
+
+            <view class="box4">
+              <text>{{item.content}}</text>
+              <view wx:if="{{item.isPromotion}}" class="isPromotion">
+                <image class="neirongtu" src="{{item.images}}"></image>
+              </view>
+            </view>
+            <view class="icon">
+              <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png">
+              </image>
+              <text>评论</text>
+              <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png">
+              </image>
+              <text>收藏</text>
+            </view>
+            <view class="boxwhite">
+
+            </view>
           </view>
+
+
         </scroll-view>
       </swiper-item>
-    </block>
+    </view>
   </swiper>
+
 
 
 </view>

@@ -1,0 +1,12 @@
+{
+  
+  "navigationBarTitleText": "填写资料",
+  "navigationBarBackgroundColor": "#46af97",
+  "navigationBarTextStyle": "white",
+
+
+  "usingComponents": {
+    "mp-uploader": "weui-miniprogram/uploader/uploader"
+  }
+
+}

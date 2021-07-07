@@ -4,10 +4,23 @@
     "pages/xinsheng/xinsheng",
     "pages/zudui/zudui",
     "pages/wode/wode",
-    "pages/xiangqing/xiangqing",
     "pages/searchs/searchs",
-    "pages/fabu/fabu"
-    
+    "pages/fabu/fabu",
+    "pages/renzhen/renzhen",
+    "pages/renzhen2/renzhen2",
+    "pages/renzhen3/renzhen3",
+    "pages/fankui/fankui",
+    "pages/guanyu/guanyu",
+    "pages/kepudetail/kepudetail",
+    "pages/wofabu/wofabu",
+    "pages/woshouc/woshouc",
+    "pages/test1/test1",
+    "pages/fabuToxs/fabuToxs",
+    "pages/fabuTozd/fabuTozu",
+    "pages/xiangqing1/xiangqing1",
+    "pages/xiangqing2/xiangqing2",
+    "pages/searchs1/searchs1",
+    "pages/searchs2/searchs2"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -16,7 +29,6 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
     "selectedColor": "#46AF97",
     "list": [
@@ -46,10 +58,8 @@
       }
     ]
   },
-
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-
   "useExtendedLib": {
     "weui": true
   }

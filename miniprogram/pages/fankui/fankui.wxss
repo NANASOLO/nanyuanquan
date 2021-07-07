@@ -1,0 +1,38 @@
+page{
+  background-color:#F5F5F5;
+}
+
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.weui-input{
+
+  font-size: large;
+}
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  font-size: large;
+}
+
+.page-section-title{
+  color: rgb(53, 53, 53);
+  font-size: large;
+margin: 20rpx;
+margin-left:30rpx ;
+}
+
+.weui-cells__title{
+  color: rgb(53, 53, 53);
+  font-size: large;
+
+}
+
+
+.btn-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

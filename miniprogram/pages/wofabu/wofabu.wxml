@@ -1,0 +1,46 @@
+<view class="container">
+  <block wx:if="{{circle==null||circle.length==0}}">
+    <view class="tu">
+      <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/404Error.png">
+      </image>
+    </view>
+    <view id='nothing' style='font-size:34rpx' class="gouwuche">没有发布哦，快去发布点东西吧~</view>
+    <navigator url="../index/index" open-type="switchTab" style='font-size:28rpx;color:#46af97' class="qushouye">去首页
+    </navigator>
+  </block>
+
+  <view class="box2" wx:for="{{circle}}">
+
+    <view class="box22" bindtap="xiangqing2Tab" data-xiangqingdata2="{{item}}">
+      <image class="touxiang" src="{{item.avatarUrl}}">
+      </image>
+      <view class="box3">
+        <view>
+          <text1>{{item.nickName}}</text1>
+        </view>
+        <view>
+          <text2>{{item.time}}</text2>
+        </view>
+        <view>
+          <text4>#{{item.categor}}</text4>
+        </view>
+      </view>
+    </view>
+
+    <view class="box4">
+      <text3>{{item.content}}</text3>
+
+    </view>
+
+    <view class="icon">
+      <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png"></image>
+      <text>评论</text>
+
+      <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/delete.png" bindtap="deleteList"
+        data-index="{{index}}"></image>
+      <text>{{isClick?'已删除':'删除'}}</text>
+    </view>
+
+  </view>
+
+</view>

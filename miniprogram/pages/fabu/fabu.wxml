@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <scroll-view class="tab-list" scroll-x scroll-with-animation>
-<view wx:for="{{tabList}}" class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}" bindtap="selectTab">{{item.name1}}</view>
+<view wx:for="{{tabList}}" class="tab-item {{curTab===item.id ? 'selected-tab':''}}" data-item="{{item}}" data-id="{{item.id}}"  bindtap="selectTab">{{item.name1}}</view>
 </scroll-view>
 
 <view class="weui-cells">

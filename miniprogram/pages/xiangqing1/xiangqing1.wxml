@@ -1,0 +1,99 @@
+<!-- 头像信息部分 -->
+<view class="container">
+  <view class="box0">
+<view class="box1">
+  <image class="touxiang1" src="{{AvatarUrl}}"></image>
+  <view class="box2">
+    <view>
+      <text1>{{NickName}}</text1>
+    </view>
+    <view>
+      <text2>{{Time}}</text2>
+    </view>
+    <view>
+      <text4>#问答</text4>
+    </view>
+  </view>
+</view>
+
+<!-- 内容部分 -->
+<view class="box3">
+  <text3>{{Content}}</text3>
+  <view wx:if="{{images !=''}}" class="isPromotion" class="neirongtu" wx:for-item="image">
+    <image class="neirongtu" src="{{image}}"></image>
+  </view>
+</view>
+<!-- 图标部分 -->
+<view class="icon">
+  <view catchtap="clickcomment">
+    <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png"></image>
+    <text>评论</text>
+    <image class="save " src="{{isClick?'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png':'cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang2.png'}}"                            
+      bindtap="haveSave" data-id="{{circle}}"></image>
+      
+    <text class="saveText">收藏</text>
+    
+  </view>
+</view>
+  </view>
+                                 
+ <!-- 评论部分 -->
+ <view class="box">
+    <view class="box4">
+      <!-- 评论数 -->
+      <text1>全部评论</text1>
+      <view class="divLine">
+        
+      </view>
+    </view>
+  </view>
+</view>
+
+<view>
+<view wx:for="{{pinglun}}">
+<!-- 评论头像部分 -->
+<view class="box5" >
+<view class="box6">
+  <image class="touxiang" src="{{item.avatarUrl}}"></image>
+</view>
+<view class="box222">
+  <view>
+<text1>{{item.pingnickName}}</text1>
+</view>
+<view>
+<text2>{{item.time}}</text2></view>
+</view>
+</view>
+
+
+<!-- 评论内容部分 -->
+<view class="box9">
+  <text>{{item.comments}}</text>
+ <!--  <view wx:if="{{tupian !=''}}" class="isPromotion">
+      <image src="{{tupian}}"></image>
+    </view> -->
+</view>
+
+
+<view class="box">
+<view class="box4">
+<view class="divLine"></view>
+</view>
+</view>
+
+</view>
+</view>
+<view class='placeholder-view'></view>
+<open-data>{{nickName}}</open-data>
+
+
+<form bindsubmit="formSubmit" bindreset="formReset"> 
+  <view class="talk" >
+  <input class='input' name="comments" confirm-type='send' placeholder='请输入文本'  bindinput="bindInput"></input>
+  <button formType="submit" class="confirm" catchtap="clickTab" >
+    <view class="ziti">
+      <text>提交</text>
+    </view>
+  </button>
+</view>
+</form>

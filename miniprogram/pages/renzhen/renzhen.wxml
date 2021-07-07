@@ -1,0 +1,3 @@
+<image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/认真须知.png" class="img"></image>
+
+<button style="background-color:#46af97" type="primary" bindtap="gotorenzhen" > 前往认证</button>

@@ -1,70 +1,84 @@
-<!--index.wxml-->
+
 <view class="container">
-<view class="search_input">
-  <navigator url="/pages/searchs/searchs" class="iconfont icon-search" open-type="navigate">
-  <icon class="searchicon" size="20" type="search"></icon>
-  <text>搜索</text>
-  </navigator>
-</view>
-
-
-
-<swiper class="swiper1" indicator-dots="{{true}}" autoplay="ture" interval="3000" duration="500">
-  <block wx:for="{{imgUrls}}" wx:for-item="abc">
-    <swiper-item bindtap="swipertiaozhuan" data-swiperdata="{{abc}}">
-      <image src="{{abc.image}}"></image>
-    </swiper-item>
-  </block>
-</swiper>
-
-<scroll-view class="tab-list" scroll-x scroll-with-animation>
-  <view wx:for="{{tabList}}" class="tab-item {{curTab===index ? 'selected-tab':''}}" data-index="{{index}}"
-    bindtap="selectTab">
-    {{item.name1}}</view>
-</scroll-view>
-
-<swiper current="{{current}}" bindchange="swiperChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}"
-  bindanimationfinish="changeGoodsSwip">
-  <view wx:for="{{tabList}}">
-    <swiper-item>
-      <scroll-view class="box2" wx:for="{{item.bqlist}}" bindtap="xiangqingTab" data-xiangqingdata="{{item}}"
-        scroll-y="{{true}}" style="height: {{clientHeight?clientHeight:'auto'}}" bindscrolltolower="scrollbot">
-        <view class="box22">
-          <image class="touxiang" src="{{item.pic}}"></image>
-          <view class="box3">
-            <view>
-              <text1>{{item.name}}</text1>
-            </view>
-            <view>
-              <text2>{{item.data}}</text2>
-            </view>
-          </view>
-        </view>
-
-        <view class="box4">
-          <text3>{{item.neirong}}</text3>
-          <view wx:if="{{item.isPromotion}}" class="isPromotion">
-            <image src="{{item.tupian}}"></image>
-          </view>
-        </view>
-        <view class="icon">
-          <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/liulang.png"></image>
-          <text>{{item.readNum}}</text>
-          <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png"></image>
-          <text>{{item.plNum}}</text>
-          <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/shouchang1.png">
-          </image>
-          <text>{{item.scNum}}</text>
-        </view>
-
-      </scroll-view>
-    </swiper-item>
+  <view class="search_input">
+    <navigator url="/pages/searchs/searchs" class="iconfont icon-search" open-type="navigate">
+      <icon class="searchicon" size="20" type="search"></icon>
+      <text>搜索</text>
+    </navigator>
   </view>
-</swiper>
+
+
+
+  <swiper class="swiper1" indicator-dots="{{true}}" autoplay="ture" interval="3000" duration="500">
+    <block wx:for="{{imgUrls}}" wx:for-item="abc">
+      <swiper-item bindtap="swipertiaozhuan" data-swiperdata="{{abc}}">
+        <image src="{{abc.image}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <scroll-view class="tab-list" scroll-x scroll-with-animation>
+    <view wx:for="{{tabList}}" class="tab-item {{curTab===item.id ? 'selected-tab':''}}" data-item="{{item}}"
+      data-id="{{item.categor}}" bindtap="selectTab">{{item.name1}}</view>
+  </scroll-view>
+
+  <swiper current="{{current}}" bindchange="swiperChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}"
+    bindanimationfinish="changeGoodsSwip">
+    <view>
+      <swiper-item>
+        <scroll-view class="box2" scroll-x="true">
+          <view wx:for="{{circle}}" wx:key="biaoqian">
+            <view wx:if="{{biaoqian == item.categor}}">
+              <view biaoqian="{{item.categor}}" bindtap="xiangqing2Tab" data-xiangqingdata2="{{item}}">
+
+                <view class="box22" >
+                  <image class="touxiang" src="{{item.avatarUrl}}"></image>
+                  <view class="box3">
+                    <view>
+                      <text1>{{item.nickName}}</text1>
+                    </view>
+                    <view>
+                      <text2>{{item.time}}</text2>
+                    </view>
+                    <view>
+                      <text4>#{{item.categor}}</text4>
+                    </view>
+                  </view>
+                </view>
+
+                <view class="box4" >
+                  <text3>{{item.content}}</text3>
+                  <view class="neirongtu">
+                    <image class="neirongtu" wx:for="{{item.images}}" wx:for-item="image" src="{{image}}"></image>
+                  </view>
+                </view>
+                <view class="icon">
+                  <image src="cloud://text-3gs63jh3073eb50d.7465-text-3gs63jh3073eb50d-1305876548/images/pinlun.png">
+                  </image>
+                  <text>评论</text>
+                  <image class="save " src="{{item.icon}}" data-id="{{circle}}"></image>
+                  <text class="saveText">收藏</text>
+                </view>
+                <view class="boxwhite">
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </view>
+  </swiper>
 </view>
 
-<view bindtap='adddetial'>
- 
- <image class="add_icon" src="/images/fabu.png"></image>
 
+<view class="drawer_screen" bindtap="showOrHide" wx:if="{{isShow}}" catchtouchmove="true"></view>
+<view>
+  <image src="/images/tab2m.png" class="buttom" wx:if="{{isShow}}" animation="{{animDelLots}}" bindtap="fabuToxs">
+  </image>
+  <image src="/images/tab3m.png" class="buttom" wx:if="{{isShow}}" animation="{{animAdd}}" bindtap="fabuTozd"></image>
+  <image src="/images/fabu.png" class="buttom" wx:if="{{!isShow}}" animation="{{animMain}}" bindtap="showOrHide">
+  </image>
+  <image src="/images/tab1m.png" class="buttom" wx:if="{{isShow}}" animation="{{animMain}}" bindtap="deleteLots">
+  </image>
 </view>

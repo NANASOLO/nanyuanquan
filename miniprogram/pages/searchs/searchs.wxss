@@ -32,12 +32,6 @@ page{
 	
 }
  
-/* .topsearch>text {
-  width: 10%;
-  margin-left: 5%;
-	color:  #666;
-	
-} */
 .button1{
 	width: 15%;
 	float: right;
@@ -50,8 +44,6 @@ page{
 	line-height:60rpx;
 } 
 
-
-  
  
 .history {
   background-color: white;
@@ -161,4 +153,13 @@ text2{
   font-size: 8pt;
   color: #7B7B7B;
 }
-
+text4{
+  color: #F7C95F;
+}
+.isPromotion{
+  margin-top: 30rpx;
+  width:100%;
+}
+.isPromotion image{
+  width:100%;
+}
